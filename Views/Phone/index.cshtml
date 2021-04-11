@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+}
+
+@model PhoneListViewModel
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Make </th>
+            <th scope="col">Name</th>
+
+            <th scope="col">Operating system</th>
+            <th scope="col">price </th>
+        </tr>
+
+        @foreach (var phone in Model.Phones)
+        {
+            <tr>
+                <td>  @phone.id  </td>
+                <th scope="row"> @phone.make </th>
+                <td>  @phone.name     </td>
+                <td>  @phone.os      </td>
+
+                <td>
+                    @phone.price
+                    <a class="btn btn-info" asp-area="" itemid='@phone.id' asp-controller="Home" asp-action="Index">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="Index">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+        }
+        <br>
+        <a class="btn btn-primary" controller="Home" asp-action="Create">
+            Add New Phone
+        </a>
+
+
+
+
+
+

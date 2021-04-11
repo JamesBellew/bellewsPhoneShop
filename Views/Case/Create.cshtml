@@ -1,0 +1,55 @@
+﻿@model bellewsPhoneShop.Models.Case
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Case</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="caseName" class="control-label">Case Name</label>
+                <input asp-for="caseName" class="form-control" />
+                <span asp-validation-for="caseName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="casePrice" class="control-label">Case Price</label>
+                <input asp-for="casePrice" class="form-control" />
+                <span asp-validation-for="casePrice" class="text-danger"></span>
+            </div>
+
+
+         
+            <div class="form-group">
+                <label asp-for="caseColor" for="sel1">Case Color</label>
+                <select asp-for="caseColor" class="form-control" id="sel1">
+                    <option asp-for="caseColor">Red</option>
+                    <option asp-for="caseColor">Black</option>
+                    <option asp-for="caseColor">White</option>
+                    <option asp-for="caseColor">Pink</option>
+
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

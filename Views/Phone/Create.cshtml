@@ -1,0 +1,66 @@
+﻿@model bellewsPhoneShop.Models.Phone
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Phone</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label">Phone Name</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="make" for="sel1">Phone Manufacturer</label>
+                <select asp-for="make" class="form-control" id="sel1">
+                    <option asp-for="os">Apple</option>
+                    <option asp-for="os">Samsung</option>
+                    <option asp-for="os">Heauwie</option>
+                    <option asp-for="os">Xaoimi</option>
+                    <option asp-for="os">Oppo</option>
+                    <option asp-for="os">Realme</option>
+                    <option asp-for="os">One Plus</option>
+                    <option asp-for="os">LG</option>
+                    <option asp-for="os">ROG</option>
+                    <option asp-for="os">Google</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label">Phone Price</label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="os" for="sel1">Phone Operating System</label>
+                <select asp-for="os" class="form-control" id="sel1">
+                    <option asp-for="os">IOS</option>
+                    <option asp-for="os">Android</option>
+                    <option asp-for="os">Windows</option>
+                    <option asp-for="os">Linux</option>
+
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
